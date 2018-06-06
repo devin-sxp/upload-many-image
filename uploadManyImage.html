@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>	</title>
+		<link rel="stylesheet" type="text/css" href="weui.min.css">
+		<style type="text/css">
+			.image-many-show {
+			    right: 15px;
+			    float: right;
+			    position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 后台java通过@RequestParam(value = "files",required = false) List<MultipartFile> files接收 -->
+		<form action="#" enctype="multipart/form-data">
+			<div class="weui-cells">
+
+				<div class="weui-cell">
+			        <div class="weui-cell__hd">
+			            <label class="weui-label">照片</label>
+			        </div>
+			        <div class="weui-cell__bd">
+			            <input hidden="hidden" type="file"  accept="image/*" id="file" name="file" class="weui-input">
+			            <input id="input_one_button" type="button" class="weui-btn weui-btn_plain-default" value="选择照片">
+			        </div>
+			    </div>
+
+			    <div class="weui-cell">
+			        <div class="weui-cell__bd" id="div_file_preview">
+
+			        </div>
+			    </div>
+
+				<div class="weui-cell">
+			        <div class="weui-cell__hd">
+			            <label class="weui-label">照片</label>
+			        </div>
+			        <div class="weui-cell__bd">
+			            <input hidden="hidden" type="file"  accept="image/*" id="files" name="files" class="weui-input">
+			            <input id="input_button" type="button" class="weui-btn weui-btn_plain-default" value="添加照片">
+			        </div>
+			    </div>
+
+			    <div class="weui-cell">
+			        <div class="weui-cell__bd" id="div_files_preview">
+
+			        </div>
+			    </div>
+
+			    <div class="weui-btn-area">
+			    	 <input type="submit" class="weui-btn weui-btn_warn">
+			    </div>
+			</div>
+		</form>
+
+	    <script type="text/javascript" src="jquery-2.1.4.js"></script>
+	    <script type="text/javascript" src="jquery-weui.js"></script>
+	    <script type="text/javascript" src="utils.js"></script>
+	    <script type="text/javascript" src="uploadManyImage.js"></script>
+	    <script>
+	         UPLOAD_IMAGE.uploadOnlyOneImage("input_one_button","file","div_file_preview"); //绑定单文件上传
+	         UPLOAD_IMAGE.uploadManyImage("input_button","files","div_files_preview");//绑定多文件上传
+	    </script>
+	</body>
+</html>
